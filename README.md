@@ -18,13 +18,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Params For API
 
-This API will take the params of `Course (i.e COMPXXXX)` and `Term(i.e 1)`, 
-and it will use your local date to take the year.
+This API will take the params of **Course (i.e COMPXXXX)** and **Term(i.e 1)**, 
+and it will use your **device date** to take the year.
 
 ## What is this API Retuning
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This API will return the assesment and weighting on each component and adds up to 100% 
+course completition. Mainly this API is used for [talea tally](taleatally.vercel.app), 
+a website to help UNSW Student to track one's course performance.
 
 ## How To Use
