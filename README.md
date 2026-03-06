@@ -24,7 +24,7 @@ and it will use your **device date** to take the year.
 ## What is this API Retuning
 
 This API will return the assesment and weighting on each component and adds up to 100% 
-course completition. Mainly this API is used for [talea tally](taleatally.vercel.app), 
+course completition. Mainly this API is used for [talea tally](https://taleatally.vercel.app), 
 a website to help UNSW Student to track one's course performance.
 
 ## How To Use
