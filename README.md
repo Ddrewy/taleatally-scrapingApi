@@ -10,6 +10,6 @@ course completition, the weighting is returned on ```weight x 100``` format, whi
 a website to help UNSW Student to track one's course performance.
 
 ## How To Use
-call the [scraping api](https://ucoscrapingapi.vercel.app) with format [api link]/$course=[any unsw course]&term=[past or current team]
+call the [scraping api](https://ucoscrapingapi.vercel.app) with format [api link]/?course=[any unsw course]&term=[past or current team]
 
 note* for the course you could use any case(i.e COMPXXXX & compXXXX is valid), for the term, please only input the term number.
