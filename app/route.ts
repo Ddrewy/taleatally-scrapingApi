@@ -7,24 +7,23 @@ interface Assessment {
 
 export async function GET(request: Request) {
   const searchParams = new URLSearchParams(new URL(request.url).searchParams);
-  const course = searchParams.get('course');
+  const course = searchParams.get('course').toUpperCase();
   const term = searchParams.get('term'); 
 
   //check the data if the params is available
   if (!course || !term) {
     return NextResponse.json({error: "Missing Parameter"}, {status: 401});
   }
+
   const year:number = new Date().getFullYear();
-  console.log(year);
   const fetchResponse = await fetch(`https://courseoutlines.unsw.edu.au/v1/publicsitecourseoutlines/detail?year=${year}&term=Term+${term}&deliveryMode=In+Person&deliveryFormat=Standard&teachingPeriod=T${term}&deliveryLocation=Kensington&courseCode=${course}&activityGroupId=1`);
+  const data = await fetchResponse.json(); 
 
   // check if the fetch is good or not
-  if (!fetchResponse.ok) {
+  if (!fetchResponse.ok || data.type == "No Results") {
     return NextResponse.json({error: "failed to fetch data"}, {status: 500});
   }
 
-  const data = await fetchResponse.json(); 
-  console.log(data);
   const rawAssessment = data.integrat_CO_Assessment;
 
   const respArr: Assessment[] = rawAssessment.map((item: any) => ({
