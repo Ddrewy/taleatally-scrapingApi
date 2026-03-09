@@ -7,7 +7,7 @@ interface Assessment {
 
 export async function GET(request: Request) {
   const searchParams = new URLSearchParams(new URL(request.url).searchParams);
-  const course = searchParams.get('course').toUpperCase();
+  let course = searchParams.get('course');
   const term = searchParams.get('term'); 
 
   //check the data if the params is available
@@ -15,6 +15,7 @@ export async function GET(request: Request) {
     return NextResponse.json({error: "Missing Parameter"}, {status: 401});
   }
 
+  course = course.toUpperCase();
   const year:number = new Date().getFullYear();
   const fetchResponse = await fetch(`https://courseoutlines.unsw.edu.au/v1/publicsitecourseoutlines/detail?year=${year}&term=Term+${term}&deliveryMode=In+Person&deliveryFormat=Standard&teachingPeriod=T${term}&deliveryLocation=Kensington&courseCode=${course}&activityGroupId=1`);
   const data = await fetchResponse.json(); 
